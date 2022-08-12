@@ -76,10 +76,10 @@ export default function Home() {
   },[])
   
   return (
-    <div className='container'  >
+    <div className=' w-screen h-screen bg-gray-800 text-cyan-50 flex justify-center items-center flex-col'  >
       <video   className='input_video' ref={videoRef} style={{display:`none`}}></video>
       <canvas ref={canvasRef} width="1280px" height="720px"></canvas>
-      <h1>dedos levantados: {contador}</h1>
+      <h1>dedos levantados: {contador || 0}</h1>
     </div>
   )
 }
