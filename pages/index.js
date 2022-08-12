@@ -7,6 +7,8 @@ export default function Home() {
   const videoRef = useRef(null)
   const canvasRef = useRef(null)
   const contextRef = useRef(null)
+  const [block1,setblock1] = useState([1,2])
+  const [block2,setblock2] = useState([3])
  const [contador,setContador] = useState(0)
   const onResults = (result)=>{
     contextRef.current?.save()
@@ -35,6 +37,7 @@ export default function Home() {
           drawLandmarks(contextRef.current,ladmarks,{color:`#FF0000`,lineWidth:2})
         } 
     }
+   
     if(!pontos.length == 0){
       if(result.multiHandLandmarks){
       if(pontos[4][0] > pontos[2][0]) {
@@ -46,8 +49,12 @@ export default function Home() {
         }
       })
       setContador(cont)
+    if(cont == 0 ){
+      setContador(`0`)
     }
     }
+    }
+    
   
       contextRef.current.restore()
   }
@@ -76,10 +83,12 @@ export default function Home() {
   },[])
   
   return (
-    <div className='container'  >
-      <video   className='input_video' ref={videoRef} style={{display:`none`}}></video>
-      <canvas ref={canvasRef} width="1280px" height="720px"></canvas>
-      <h1>dedos levantados: {contador}</h1>
+    <div className='bg-gray-800 w-screen h-screen text-gray-200 flex justy-center items-center flex-col'   >
+      <h1 className='text-2xl'>Ola, Posicione a mao  direta em frente a tela</h1>
+   
+      <video   className='input_video '   ref={videoRef} style={{display:`none`}}></video>
+      <canvas  ref={canvasRef} width="1300px" height="750px" className='bg-black '></canvas>
+      <h1 className='text-2xl'>Dedos levantados: {contador || 0}</h1>
     </div>
   )
 }
