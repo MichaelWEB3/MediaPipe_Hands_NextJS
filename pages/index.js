@@ -8,50 +8,51 @@ export default function Home() {
   const canvasRef = useRef(null)
   const contextRef = useRef(null)
  const [contador,setContador] = useState(0)
-  const onResults = (result)=>{
-    contextRef.current?.save()
-    contextRef.current.clearRect(0,0,canvasRef.current?.width, canvasRef.current?.height)
-    contextRef.current.drawImage(result.image,0,0,canvasRef.current.width,canvasRef.current.height)
-   //multiHandWorldLandmarks console.log(result)
-  var pontos = []
-  var dedos =[8,12,16,20]
-   if(result.multiHandLandmarks){
-    var cont = []
-        for(const ladmarks of result.multiHandLandmarks) {
-          const width = contextRef.current.canvas.width
-          const height = contextRef.current.canvas.height
-
-          ladmarks.map((cord,i)=>{
-            var cx = parseInt(cord.x*width)
-            var cy = parseInt(cord.y*height)
-            pontos.push([cx,cy])
-            
-          //  console.log(pontos)
-          // console.log(i,cx,cy)
-     
-
-          })         
-          drawConnectors(contextRef.current,ladmarks,HAND_CONNECTIONS,{color:`#00FF00`,lineWidth:5})
-          drawLandmarks(contextRef.current,ladmarks,{color:`#FF0000`,lineWidth:2})
-        } 
-    }
-    if(!pontos.length == 0){
-      if(result.multiHandLandmarks){
-      if(pontos[4][0] > pontos[2][0]) {
-        cont++
+  
+  useEffect(()=>{
+    const onResults = (result)=>{
+      contextRef.current?.save()
+      contextRef.current.clearRect(0,0,canvasRef.current?.width, canvasRef.current?.height)
+      contextRef.current.drawImage(result.image,0,0,canvasRef.current.width,canvasRef.current.height)
+     //multiHandWorldLandmarks console.log(result)
+    var pontos = []
+    var dedos =[8,12,16,20]
+     if(result.multiHandLandmarks){
+      var cont = []
+          for(const ladmarks of result.multiHandLandmarks) {
+            const width = contextRef.current.canvas.width
+            const height = contextRef.current.canvas.height
+  
+            ladmarks.map((cord,i)=>{
+              var cx = parseInt(cord.x*width)
+              var cy = parseInt(cord.y*height)
+              pontos.push([cx,cy])
+              
+            //  console.log(pontos)
+            // console.log(i,cx,cy)
+       
+  
+            })         
+            drawConnectors(contextRef.current,ladmarks,HAND_CONNECTIONS,{color:`#00FF00`,lineWidth:5})
+            drawLandmarks(contextRef.current,ladmarks,{color:`#FF0000`,lineWidth:2})
+          } 
       }
-      dedos.map((x,i)=>{
-        if(pontos[x][1]<pontos[x-2][1]){
+      if(!pontos.length == 0){
+        if(result.multiHandLandmarks){
+        if(pontos[4][0] > pontos[2][0]) {
           cont++
         }
-      })
-      setContador(cont)
+        dedos.map((x,i)=>{
+          if(pontos[x][1]<pontos[x-2][1]){
+            cont++
+          }
+        })
+        setContador(cont)
+      }
+      }
+    
+        contextRef.current.restore()
     }
-    }
-  
-      contextRef.current.restore()
-  }
-  useEffect(()=>{
     contextRef.current= canvasRef.current.getContext(`2d`)
   
     const hands = new Hands({locateFile:((file) => {
