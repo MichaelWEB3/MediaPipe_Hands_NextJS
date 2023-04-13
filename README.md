@@ -1,34 +1,53 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+#MediaPipe_Hands_NextJS 💻 
 
-First, run the development server:
+ 🖊 
+Usando uma lib MediaPipe do google, para pegar movimentos das maos e fazer um calculo para saber quais dedos estao levantados e quais estao abaixados.
+Como nao achei nenhuma implementacao no react nem no next eu mesmo fiz uma adptaçao !! 
+
+## Funcionalidades   💎 
+
+
+- Preview em tempo real
+- Modo tela cheia
+- Multiplataforma
+
+
+## Rodando localmente  | running locally ⚙️ 
+
+Clone o projeto | Clone the project
 
 ```bash
-npm run dev
-# or
-yarn dev
+  git clone https://link-para-o-projeto
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Entre no diretório do projeto | Enter the project directory
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+```bash
+  cd my-project
+```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+Instale as dependências | install the dependencies
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+```bash
+  npm install
+```
 
-## Learn More
+Inicie o servidor | start the server
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+  npm run dev
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Screenshots
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Stack utilizada
+
+![8fce6b2c-5344-4c6e-b71c-e70a2f7b2070](https://user-images.githubusercontent.com/55338900/231797303-a48de056-82fc-41a7-95d9-82a78f1c2024.jpg)
+
+**Front-end:** ReactJS, NextJS, MediaPipe
+
+
