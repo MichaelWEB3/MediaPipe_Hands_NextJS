@@ -1,5 +1,5 @@
 
-#MediaPipe_Hands_NextJS 💻 
+## MediaPipe_Hands_NextJS 💻 
 
  🖊 
 Usando uma lib MediaPipe do google, para pegar movimentos das maos e fazer um calculo para saber quais dedos estao levantados e quais estao abaixados.
